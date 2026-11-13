@@ -18,6 +18,16 @@ const images = {
   storiesBlue: "/assets/efaea.png",
   storiesPortrait: "/assets/2e351.png",
   storiesLamp: "/assets/d0f56.png",
+  archiveVessel: "/assets/projects/photo-10.jpg",
+  archiveFigures: "/assets/projects/photo-01.jpg",
+  archiveLamp: "/assets/projects/photo-02.jpg",
+  archivePortrait: "/assets/projects/photo-04.jpg",
+  archiveRoom: "/assets/projects/photo-03.jpg",
+  archiveMexico: "/assets/projects/photo-05.jpg",
+  archiveClassicalFigures: "/assets/projects/photo-07.jpg",
+  archiveBlueVessel: "/assets/projects/photo-09.jpg",
+  archiveVidas: "/assets/projects/photo-08.jpg",
+  archiveMasks: "/assets/projects/photo-06.jpg",
 }
 
 function Arrow({
@@ -150,6 +160,7 @@ type ProjectProps = {
   title: string
   category: string
   image: string
+  alt: string
   className?: string
   href?: string
 }
@@ -159,23 +170,35 @@ function ProjectCard({
   title,
   category,
   image,
+  alt,
   className = "",
-  href = "/projects/soft-architectures",
+  href,
 }: ProjectProps) {
-  return (
-    <AppLink className={`project-card ${className}`} href={href}>
+  const content = (
+    <>
       <div className="project-image-wrap">
-        <img src={image} alt="" className="project-image" />
-        <span className="project-arrow">
-          <Arrow diagonal />
-        </span>
+        <img src={image} alt={alt} className="project-image" />
+        {href && (
+          <span className="project-arrow">
+            <Arrow diagonal />
+          </span>
+        )}
       </div>
       <div className="project-meta">
         <span>{number}</span>
         <h3>{title}</h3>
         <span>{category}</span>
       </div>
+    </>
+  )
+  const classNames = `project-card ${className}`
+
+  return href ? (
+    <AppLink className={classNames} href={href}>
+      {content}
     </AppLink>
+  ) : (
+    <article className={classNames}>{content}</article>
   )
 }
 
@@ -346,13 +369,16 @@ function HomePage() {
             title="Soft Architectures"
             category="Painting · 2025"
             image={images.storiesSoft}
+            alt="Abstract blue painting from the Soft Architectures series"
             className="project-large"
+            href="/projects/soft-architectures"
           />
           <ProjectCard
             number="02"
             title="Things We Carry"
             category="Painting · 2024"
             image={images.storiesBlue}
+            alt="Blue-toned painting from Things We Carry"
             className="project-tall"
             href="/projects/things-we-carry"
           />
@@ -361,6 +387,7 @@ function HomePage() {
             title="Things We Carry"
             category="Painting · 2024"
             image={images.storiesPortrait}
+            alt="Portrait painting from Things We Carry"
             className="project-repeat"
             href="/projects/things-we-carry"
           />
@@ -369,6 +396,7 @@ function HomePage() {
             title="A Room of Echoes"
             category="Installation · 2023"
             image={images.storiesLamp}
+            alt="Sculptural lamp from A Room of Echoes"
             className="project-wide"
             href="/projects/a-room-of-echoes"
           />
@@ -500,30 +528,77 @@ function ProjectsPage() {
       <section className="archive-grid" aria-label="Project archive">
         <ProjectCard
           number="01"
-          title="Soft Architectures"
-          category="Painting · 2025"
-          image={images.blue}
-        />
-        <ProjectCard
-          number="02"
-          title="Things We Carry"
-          category="Painting · 2024"
-          image={images.figure}
-          href="/projects/things-we-carry"
-        />
-        <ProjectCard
-          number="03"
           title="A Room of Echoes"
           category="Installation · 2023"
-          image={images.circles}
+          image={images.archiveVessel}
+          alt="Blue-and-white ceramic vessel with a pom-pom handle"
           href="/projects/a-room-of-echoes"
         />
         <ProjectCard
-          number="04"
+          number="02"
+          title="Soft Architectures"
+          category="Painting · 2025"
+          image={images.archiveFigures}
+          alt="Two intertwined figures on a blue painted background"
+          href="/projects/soft-architectures"
+        />
+        <ProjectCard
+          number="03"
           title="Domestic Weather"
           category="Mixed media · 2022"
-          image={images.gallery}
+          image={images.archiveLamp}
+          alt="Table lamp with a bright yellow shade and striped ceramic base"
           href="/projects/domestic-weather"
+        />
+        <ProjectCard
+          number="04"
+          title="Portrait in Yellow"
+          category="Painting"
+          image={images.archivePortrait}
+          alt="Portrait of a woman wearing layered necklaces against a yellow background"
+        />
+        <ProjectCard
+          number="05"
+          title="Things We Carry"
+          category="Painting · 2024"
+          image={images.archiveRoom}
+          alt="Colorful painting of a person walking through a room"
+          href="/projects/things-we-carry"
+        />
+        <ProjectCard
+          number="06"
+          title="Mexico"
+          category="Painting"
+          image={images.archiveMexico}
+          alt="Painting of two people in a Mexico-themed scene"
+        />
+        <ProjectCard
+          number="07"
+          title="Three Figures"
+          category="Painting"
+          image={images.archiveClassicalFigures}
+          alt="Three classical figures depicted in brown, blue, and black"
+        />
+        <ProjectCard
+          number="08"
+          title="Blue Textured Vessel"
+          category="Ceramic"
+          image={images.archiveBlueVessel}
+          alt="Tall blue ceramic vessel with a raised textured surface and striped base"
+        />
+        <ProjectCard
+          number="09"
+          title="Vidas"
+          category="Painting"
+          image={images.archiveVidas}
+          alt="Vertical black artwork with colorful repeating patterns"
+        />
+        <ProjectCard
+          number="10"
+          title="Allegoria"
+          category="Painting"
+          image={images.archiveMasks}
+          alt="Colorful collage of theatrical masks crossed by blue rays"
         />
       </section>
     </main>
