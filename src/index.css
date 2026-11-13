@@ -868,11 +868,21 @@ img {
   padding: 140px 7vw;
 }
 
-.project-story > p {
+.project-story > h2 {
+  max-width: 5ch;
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(35px, 4vw, 60px);
-  line-height: 1.08;
+  font-size: clamp(23px, 2.4vw, 36px);
+  font-weight: 400;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.project-story > p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(13px, 1.1vw, 15px);
+  line-height: 1.5;
 }
 
 .project-story dl,

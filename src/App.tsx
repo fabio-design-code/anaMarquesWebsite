@@ -1,10 +1,4 @@
-import {
-  FormEvent,
-  MouseEvent,
-  ReactNode,
-  useEffect,
-  useState,
-} from "react"
+import { FormEvent, MouseEvent, ReactNode, useEffect, useState } from "react"
 
 const images = {
   hero: "/assets/19cb0.png",
@@ -29,6 +23,159 @@ const images = {
   archiveVidas: "/assets/projects/photo-08.jpg",
   archiveMasks: "/assets/projects/photo-06.jpg",
 }
+
+type Project = {
+  slug: string
+  number: string
+  title: string
+  category: string
+  year: string
+  medium: string
+  dimensions: string
+  image: string
+  alt: string
+  story: string
+}
+
+const projects: Project[] = [
+  {
+    slug: "blue-memories",
+    number: "01",
+    title: "Blue Memories",
+    category: "Ceramic",
+    year: "2026",
+    medium: "Cold Porcelain and Acrylic",
+    dimensions: "26 x 15 cm",
+    image: images.archiveVessel,
+    alt: "Blue-and-white ceramic vessel with a pom-pom handle",
+    story:
+      "Inspired by my trip to Greece, this ceramic piece is a personal interpretation of the colours, patterns and traditions I encountered along the way. The shades of blue and white evoke the beauty of Greek architecture and the Aegean Sea, while the geometric patterns and colourful details bring together tradition and contemporary creativity. I wanted to transform a travel memory into a unique object, where colour, texture and creativity preserve a little piece of Greece.",
+  },
+  {
+    slug: "the-shape-of-strength",
+    number: "02",
+    title: "The Shape of Strength",
+    category: "Painting",
+    year: "2026",
+    medium: "Acrylic on Canvas",
+    dimensions: "80 x 130 cm",
+    image: images.archiveFigures,
+    alt: "Two intertwined figures on a blue painted background",
+    story:
+      "In Greece, among ruins, mythology, and the traces of a civilization that continues to inspire the present, I found in ancient ceramics the depiction of athletes in motion as a form of expression. In this painting, the struggles of the Olympic Games become tension and balance — a moment suspended between strength and fragility. A travel memory transformed into painting, where history ceases to be the past and, once again, comes to life through movement.",
+  },
+  {
+    slug: "sunshine-and-stripes",
+    number: "03",
+    title: "Sunshine & Stripes",
+    category: "Painting",
+    year: "2026",
+    medium: "Cold Porcelain and Acrylic",
+    dimensions: "53 x 33 cm",
+    image: images.archiveLamp,
+    alt: "Table lamp with a bright yellow shade and striped ceramic base",
+    story:
+      "This lamp is a playful exploration of colour, shapes and contrasts, where functionality meets artistic expression. The black and white stripes of the base create a bold graphic pattern, while the bright yellow lampshade and orange details bring warmth, energy and a touch of retro charm. Through this piece, I wanted to transform an everyday object into something full of personality — a little celebration of colour, creativity and the joy of making.",
+  },
+  {
+    slug: "a-legacy-of-love",
+    number: "04",
+    title: "A Legacy of Love",
+    category: "Painting",
+    year: "2022",
+    medium: "Acrylic, Gouache and Stitching on Canvas",
+    dimensions: "70 x 100 cm",
+    image: images.archivePortrait,
+    alt: "Portrait of a woman wearing layered necklaces against a yellow background",
+    story:
+      "This painting stems from my admiration for African patterns, vibrant colours and the beauty of traditional jewellery and adornments. This passion is also connected to someone very special: my Cape Verdean aunt, with whom I shared a very strong bond from the moment I was born. A nurse by profession, she was there when I came into the world and, in many ways, brought me closer to a culture that has always fascinated me. Through this work, I wanted to honour her influence, celebrating beauty, strength and feminine identity. More than an aesthetic inspiration, this painting represents a legacy of love, admiration and memories that remain part of who I am.",
+  },
+  {
+    slug: "20-years",
+    number: "05",
+    title: "20 Years",
+    category: "Painting",
+    year: "2025",
+    medium: "Acrylic and Gouache on Canvas",
+    dimensions: "80 x 130 cm",
+    image: images.archiveRoom,
+    alt: "Colorful painting of a person walking through a room",
+    story:
+      "In 2006, during a secondary school art class, I discovered Frida Kahlo, and the Blue House (Casa Azul) became one of my greatest travel dreams. This painting captures the moment when the student Ana finally gives way to the artist who makes that dream come true. Walking towards the Casa Azul was so much more than a simple stroll: it was an encounter with an inspiration that has accompanied me since I was 17. The connection between who I was and who I am today was so powerful that I couldn't keep it locked away in my memory. I needed it to become something tangible, to take on texture and colour, and ultimately transform itself into a painting. This artwork holds everything I felt as I walked along that path — two versions of myself who, twenty years apart, finally came together.",
+  },
+  {
+    slug: "las-dos-mexicanas",
+    number: "06",
+    title: "Las dos Mexicanas",
+    category: "Painting",
+    year: "2025",
+    medium: "Acrylic and Gouache on Canvas",
+    dimensions: "80 x 120 cm",
+    image: images.archiveMexico,
+    alt: "Painting of two people in a Mexico-themed scene",
+    story:
+      "I painted this work inspired by my trip to Mexico — a dream I had held onto for twenty years, ever since I first discovered Frida Kahlo's work in a secondary school art class. One Saturday, during a visit to Chapultepec Zoo, I came across a mother and daughter wearing large bows in their hair, traditional Mexican blouses and jeans. To me, they embodied the very essence of Mexico — a fusion of colours, patterns and traditions. That image stayed with me: a simple, tender moment in which body, space and culture came together. Through this painting, I wanted to preserve that connection — the tenderness of the bond between them, the quiet strength of tradition, and the way identities intertwine and transform when they encounter new contexts and experiences. Whenever I look at this painting, I feel transported back to that Saturday. And I often find myself wondering where those two women might be now — unaware that they have become part of my memory and my art.",
+  },
+  {
+    slug: "bodies-in-motion",
+    number: "07",
+    title: "Bodies in Motion",
+    category: "Painting",
+    year: "2026",
+    medium: "Acrylic on Canvas",
+    dimensions: "80 x 130 cm",
+    image: images.archiveClassicalFigures,
+    alt: "Three classical figures depicted in brown, blue, and black",
+    story:
+      "Inspired by the running competitions of the ancient Olympic Games, this painting captures the beauty of movement, the pursuit of excellence and the human desire to go beyond one's limits. Through the simplicity of the figures and the rhythm of their gestures, I wanted to bring a fragment of Ancient Greece into the present — where movement becomes history, and history becomes art. A memory from my journey through Greece, transformed into painting — a tribute to the enduring spirit of the Olympic Games and the timeless connection between body, culture and movement.",
+  },
+  {
+    slug: "the-sicilian-pinecone",
+    number: "08",
+    title: "The Sicilian Pinecone",
+    category: "Ceramic",
+    year: "2026",
+    medium: "Cold Porcelain and Acrylic",
+    dimensions: "25 x 15 cm",
+    image: images.archiveBlueVessel,
+    alt: "Tall blue ceramic vessel with a raised textured surface and striped base",
+    story:
+      "Inspired by the traditional Sicilian pinecones I came across during my trip to Sicily, this ceramic piece is a personal interpretation of one of the island's most iconic symbols. The pinecone-inspired texture celebrates the beauty of traditional craftsmanship, while the blue lines at the base evoke the colours of the Mediterranean and the timeless charm of Sicilian ceramics. A travel memory transformed into an object, where tradition, texture and colour come together — a small tribute to the beauty and symbolism of Sicily.",
+  },
+  {
+    slug: "maias",
+    number: "09",
+    title: "Maias",
+    category: "Painting",
+    year: "2025",
+    medium: "Acrylic and Gouache on Canvas",
+    dimensions: "80 x 130 cm",
+    image: images.archiveVidas,
+    alt: "Vertical black artwork with colorful repeating patterns",
+    story:
+      "This painting was born from the trip to Mexico that I've been sharing here, especially from the inspiration I brought back from the Museum of Anthropology in Mexico City. I returned fascinated by the vibrant colors, ancestral patterns, and highly symbolic figures, transforming all of it into a composition full of energy, memory, and imagination.",
+  },
+  {
+    slug: "mascaras",
+    number: "10",
+    title: "Máscaras",
+    category: "Painting",
+    year: "2025",
+    medium: "Acrylic and Gouache on Canvas",
+    dimensions: "80 x 130 cm",
+    image: images.archiveMasks,
+    alt: "Colorful collage of theatrical masks crossed by blue rays",
+    story:
+      "This is another painting from my trip to Mexico, another memory I am adding to this series. On the day I visited Chapultepec Castle, as I walked up the path, I came across several stalls filled with lucha libre masks. There were so many of them, lined up, colourful and expressive, that they almost seemed alive. I was fascinated by the intensity of the colours and the expressions, as if each mask carried the energy of a culture full of strength and identity. This is another memory from the streets of Mexico, now living on this canvas.",
+  },
+]
+
+const previousProjectRoutes = new Set([
+  "soft-architectures",
+  "things-we-carry",
+  "a-room-of-echoes",
+  "domestic-weather",
+])
 
 function Arrow({
   diagonal = false,
@@ -515,7 +662,7 @@ function ProjectsPage() {
   return (
     <main className="inner-page">
       <PageIntro
-        index="Projects · 2021—2025"
+        index="Projects · 2022—2026"
         title={
           <>
             Bodies of work,
@@ -526,86 +673,70 @@ function ProjectsPage() {
         copy="Painting, sculpture, and installation shaped by memory, domestic space, and the poetics of material."
       />
       <section className="archive-grid" aria-label="Project archive">
-        <ProjectCard
-          number="01"
-          title="A Room of Echoes"
-          category="Installation · 2023"
-          image={images.archiveVessel}
-          alt="Blue-and-white ceramic vessel with a pom-pom handle"
-          href="/projects/a-room-of-echoes"
-        />
-        <ProjectCard
-          number="02"
-          title="Soft Architectures"
-          category="Painting · 2025"
-          image={images.archiveFigures}
-          alt="Two intertwined figures on a blue painted background"
-          href="/projects/soft-architectures"
-        />
-        <ProjectCard
-          number="03"
-          title="Domestic Weather"
-          category="Mixed media · 2022"
-          image={images.archiveLamp}
-          alt="Table lamp with a bright yellow shade and striped ceramic base"
-          href="/projects/domestic-weather"
-        />
-        <ProjectCard
-          number="04"
-          title="Portrait in Yellow"
-          category="Painting"
-          image={images.archivePortrait}
-          alt="Portrait of a woman wearing layered necklaces against a yellow background"
-        />
-        <ProjectCard
-          number="05"
-          title="Things We Carry"
-          category="Painting · 2024"
-          image={images.archiveRoom}
-          alt="Colorful painting of a person walking through a room"
-          href="/projects/things-we-carry"
-        />
-        <ProjectCard
-          number="06"
-          title="Mexico"
-          category="Painting"
-          image={images.archiveMexico}
-          alt="Painting of two people in a Mexico-themed scene"
-        />
-        <ProjectCard
-          number="07"
-          title="Three Figures"
-          category="Painting"
-          image={images.archiveClassicalFigures}
-          alt="Three classical figures depicted in brown, blue, and black"
-        />
-        <ProjectCard
-          number="08"
-          title="Blue Textured Vessel"
-          category="Ceramic"
-          image={images.archiveBlueVessel}
-          alt="Tall blue ceramic vessel with a raised textured surface and striped base"
-        />
-        <ProjectCard
-          number="09"
-          title="Vidas"
-          category="Painting"
-          image={images.archiveVidas}
-          alt="Vertical black artwork with colorful repeating patterns"
-        />
-        <ProjectCard
-          number="10"
-          title="Allegoria"
-          category="Painting"
-          image={images.archiveMasks}
-          alt="Colorful collage of theatrical masks crossed by blue rays"
-        />
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.slug}
+            number={project.number}
+            title={project.title}
+            category={`${project.category} · ${project.year}`}
+            image={project.image}
+            alt={project.alt}
+            href={`/projects/${project.slug}`}
+          />
+        ))}
       </section>
     </main>
   )
 }
 
-function ProjectDetailPage() {
+function ProjectDetailPage({ project }: { project: Project }) {
+  return (
+    <main className="detail-page">
+      <section className="detail-hero">
+        <div>
+          <SectionLabel>
+            Project {project.number} · {project.category} · {project.year}
+          </SectionLabel>
+          <h1>{project.title}</h1>
+        </div>
+        <p>
+          A study of shelter, permeability, and the emotional geometries we
+          build around ourselves.
+        </p>
+      </section>
+      <div className="detail-cover">
+        <img src={project.image} alt={project.alt} />
+      </div>
+      <section className="project-story">
+        <h2>About the work</h2>
+        <p>{project.story}</p>
+        <dl>
+          <div>
+            <dt>Year</dt>
+            <dd>{project.year}</dd>
+          </div>
+          <div>
+            <dt>Medium</dt>
+            <dd>{project.medium}</dd>
+          </div>
+          <div>
+            <dt>Dimensions</dt>
+            <dd>{project.dimensions}</dd>
+          </div>
+        </dl>
+      </section>
+      <div className="detail-image-pair">
+        <img src={project.image} alt={`Close-up detail of ${project.title}`} />
+        <img src={project.image} alt={`Alternate detail of ${project.title}`} />
+      </div>
+      <AppLink href="/projects" className="back-link">
+        View all projects <Arrow />
+      </AppLink>
+    </main>
+  )
+}
+
+function LegacyProjectDetailPage() {
   return (
     <main className="detail-page">
       <section className="detail-hero">
@@ -624,9 +755,9 @@ function ProjectDetailPage() {
       <section className="project-story">
         <SectionLabel>About the work</SectionLabel>
         <p>
-          These paintings begin with remembered rooms. Layers of pigment,
-          erased lines, and recurring thresholds transform architecture into a
-          record of feeling—unstable, porous, and alive.
+          These paintings begin with remembered rooms. Layers of pigment, erased
+          lines, and recurring thresholds transform architecture into a record
+          of feeling—unstable, porous, and alive.
         </p>
         <dl>
           <div>
@@ -653,7 +784,6 @@ function ProjectDetailPage() {
     </main>
   )
 }
-
 function StorePage() {
   return (
     <main className="inner-page shop-page">
@@ -754,7 +884,11 @@ function ProductDetailPage() {
             <dd>Worldwide, 5–10 days</dd>
           </div>
         </dl>
-        <button className="add-button" type="button" onClick={() => setAdded(true)}>
+        <button
+          className="add-button"
+          type="button"
+          onClick={() => setAdded(true)}
+        >
           {added ? "Added to bag" : "Add to bag"} <Arrow />
         </button>
         <AppLink href="/store" className="quiet-link">
@@ -828,9 +962,9 @@ function BioPage() {
           </p>
           <p>
             Her practice moves across painting, ceramics, and moving image to
-            examine how memory settles into objects and domestic spaces.
-            Through layered surfaces and intuitive gestures, she builds visual
-            languages that sit between intimacy and abstraction.
+            examine how memory settles into objects and domestic spaces. Through
+            layered surfaces and intuitive gestures, she builds visual languages
+            that sit between intimacy and abstraction.
           </p>
           <p>
             Ana studied Fine Art in Lisbon and has exhibited across Portugal,
@@ -952,7 +1086,13 @@ function NotFoundPage() {
 function resolvePage(pathname: string) {
   if (pathname === "/") return <HomePage />
   if (pathname === "/projects") return <ProjectsPage />
-  if (pathname.startsWith("/projects/")) return <ProjectDetailPage />
+  if (pathname.startsWith("/projects/")) {
+    const slug = pathname.slice("/projects/".length)
+    const project = projects.find((item) => item.slug === slug)
+    if (project) return <ProjectDetailPage project={project} />
+    if (previousProjectRoutes.has(slug)) return <LegacyProjectDetailPage />
+    return <NotFoundPage />
+  }
   if (pathname === "/store") return <StorePage />
   if (pathname.startsWith("/store/")) return <ProductDetailPage />
   if (pathname === "/media") return <MediaPage />
