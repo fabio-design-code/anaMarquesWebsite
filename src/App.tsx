@@ -511,42 +511,24 @@ function HomePage() {
           </AppLink>
         </div>
         <div className="project-grid">
-          <ProjectCard
-            number="01"
-            title="Soft Architectures"
-            category="Painting · 2025"
-            image={images.storiesSoft}
-            alt="Abstract blue painting from the Soft Architectures series"
-            className="project-large"
-            href="/projects/soft-architectures"
-          />
-          <ProjectCard
-            number="02"
-            title="Things We Carry"
-            category="Painting · 2024"
-            image={images.storiesBlue}
-            alt="Blue-toned painting from Things We Carry"
-            className="project-tall"
-            href="/projects/things-we-carry"
-          />
-          <ProjectCard
-            number="04"
-            title="Things We Carry"
-            category="Painting · 2024"
-            image={images.storiesPortrait}
-            alt="Portrait painting from Things We Carry"
-            className="project-repeat"
-            href="/projects/things-we-carry"
-          />
-          <ProjectCard
-            number="03"
-            title="A Room of Echoes"
-            category="Installation · 2023"
-            image={images.storiesLamp}
-            alt="Sculptural lamp from A Room of Echoes"
-            className="project-wide"
-            href="/projects/a-room-of-echoes"
-          />
+          {projects.slice(0, 3).map((project, index) => (
+            <ProjectCard
+              key={project.slug}
+              number={project.number}
+              title={project.title}
+              category={`${project.category} · ${project.year}`}
+              image={project.image}
+              alt={project.alt}
+              className={
+                [
+                  "project-large",
+                  "project-tall",
+                  "project-wide project-featured-third",
+                ][index]
+              }
+              href={`/projects/${project.slug}`}
+            />
+          ))}
         </div>
       </section>
 
