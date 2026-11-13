@@ -7,35 +7,48 @@ import {
 } from "react"
 
 const images = {
-  hero: "https://images.unsplash.com/photo-1703869311033-9cb56c1bc7ed?auto=format&fit=crop&w=1800&q=90",
-  blue: "https://images.unsplash.com/photo-1758192178254-f4e4dbc1d754?auto=format&fit=crop&w=1200&q=85",
-  figure:
-    "https://images.unsplash.com/photo-1706452031249-1520c2a78d5a?auto=format&fit=crop&w=1200&q=85",
-  circles:
-    "https://images.unsplash.com/photo-1612487528505-d2338264c821?auto=format&fit=crop&w=1200&q=85",
-  studio:
-    "https://images.unsplash.com/photo-1740843184819-a0a0d19ac32f?auto=format&fit=crop&w=1200&q=85",
-  gallery:
-    "https://images.unsplash.com/photo-1646256974081-fb8db560f442?auto=format&fit=crop&w=1200&q=85",
+  hero: "/assets/19cb0.png",
+  heroPortrait: "/assets/24f2b.png",
+  blue: "/assets/74935.png",
+  figure: "/assets/e21c9.png",
+  circles: "/assets/e4f80.png",
+  studio: "/assets/10b5c.png",
+  gallery: "/assets/5d3a5.png",
+  storiesSoft: "/assets/070c9.png",
+  storiesBlue: "/assets/efaea.png",
+  storiesPortrait: "/assets/2e351.png",
+  storiesLamp: "/assets/d0f56.png",
 }
 
-function Arrow({ diagonal = false }: { diagonal?: boolean }) {
+function Arrow({
+  diagonal = false,
+  light = false,
+  hero = false,
+}: {
+  diagonal?: boolean
+  light?: boolean
+  hero?: boolean
+}) {
+  if (!diagonal) {
+    return (
+      <img
+        aria-hidden="true"
+        className="icon"
+        src={
+          hero
+            ? "/assets/ba72f.svg"
+            : light
+              ? "/assets/77916.svg"
+              : "/assets/bff41.svg"
+        }
+        alt=""
+      />
+    )
+  }
+
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24" className="icon">
-      {diagonal ? (
-        <path d="M6 18 18 6M8 6h10v10" />
-      ) : (
-        <path d="M5 12h14m-5-5 5 5-5 5" />
-      )}
-    </svg>
-  )
-}
-
-function BagIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="bag-icon">
-      <path d="M5 8h14l-1 12H6L5 8Z" />
-      <path d="M9 9V6a3 3 0 0 1 6 0v3" />
+      <path d="M6 18 18 6M8 6h10v10" />
     </svg>
   )
 }
@@ -88,7 +101,6 @@ function SectionLabel({ children }: { children: ReactNode }) {
 const navigation = [
   ["Projects", "/projects"],
   ["Store", "/store"],
-  ["Media", "/media"],
   ["Bio", "/bio"],
   ["Contact", "/contact"],
 ]
@@ -99,9 +111,11 @@ function Header({ pathname }: { pathname: string }) {
   return (
     <header className="site-header">
       <AppLink className="wordmark" href="/" ariaLabel="Ana Marques, home">
-        ANA
-        <br />
-        MARQUES
+        <img
+          className="wordmark-image"
+          src="/assets/8682c.png"
+          alt="Ana Marques"
+        />
       </AppLink>
       <nav
         className={open ? "nav nav-open" : "nav"}
@@ -118,25 +132,15 @@ function Header({ pathname }: { pathname: string }) {
           </AppLink>
         ))}
       </nav>
-      <div className="header-actions">
-        <AppLink
-          className="bag-button"
-          href="/store"
-          ariaLabel="Shopping bag, 0 items"
-        >
-          <BagIcon />
-          <span>0</span>
-        </AppLink>
-        <button
-          className="menu-button"
-          type="button"
-          aria-expanded={open}
-          aria-label="Toggle menu"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? "Close" : "Menu"}
-        </button>
-      </div>
+      <button
+        className="menu-button"
+        type="button"
+        aria-expanded={open}
+        aria-label="Toggle menu"
+        onClick={() => setOpen(!open)}
+      >
+        {open ? "Close" : "Menu"}
+      </button>
     </header>
   )
 }
@@ -256,7 +260,7 @@ function Footer() {
               required
             />
             <button type="submit">
-              {subscribed ? "Thank you" : "Subscribe"} <Arrow />
+              {subscribed ? "Thank you" : "Subscribe"} <Arrow light />
             </button>
           </div>
           <p>
@@ -306,8 +310,8 @@ function HomePage() {
           </p>
           <div className="hero-image-frame">
             <img
-              src={images.hero}
-              alt="A vivid abstract painting in red, blue, yellow, and green"
+              src={images.heroPortrait}
+              alt="Ana Marques seated in her studio surrounded by paintings"
             />
           </div>
           <p className="hero-note">
@@ -319,7 +323,7 @@ function HomePage() {
             className="round-link"
             ariaLabel="Explore selected projects"
           >
-            <Arrow />
+            <Arrow hero />
           </AppLink>
         </div>
       </section>
@@ -341,22 +345,30 @@ function HomePage() {
             number="01"
             title="Soft Architectures"
             category="Painting · 2025"
-            image={images.blue}
+            image={images.storiesSoft}
             className="project-large"
           />
           <ProjectCard
             number="02"
             title="Things We Carry"
             category="Painting · 2024"
-            image={images.figure}
+            image={images.storiesBlue}
             className="project-tall"
+            href="/projects/things-we-carry"
+          />
+          <ProjectCard
+            number="04"
+            title="Things We Carry"
+            category="Painting · 2024"
+            image={images.storiesPortrait}
+            className="project-repeat"
             href="/projects/things-we-carry"
           />
           <ProjectCard
             number="03"
             title="A Room of Echoes"
             category="Installation · 2023"
-            image={images.circles}
+            image={images.storiesLamp}
             className="project-wide"
             href="/projects/a-room-of-echoes"
           />
@@ -370,7 +382,7 @@ function HomePage() {
           and the quiet intelligence of hands.
         </p>
         <AppLink className="light-link" href="/bio">
-          Read the artist statement <Arrow />
+          Read the artist statement <Arrow light />
         </AppLink>
       </section>
 
