@@ -488,7 +488,7 @@ function HomePage() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-heading">
           <SectionLabel>
-            Multidisciplinary artist · Porto / Barcelona
+            MULTIDISCIPLINARY ARTIST FROM PORTO, PORTUGAL
           </SectionLabel>
           <h1 id="hero-title">
             Between form
@@ -497,9 +497,9 @@ function HomePage() {
         </div>
         <div className="hero-composition">
           <p className="hero-index">
-            Selected works
+            Selected Works
             <br />
-            2021—2025
+            2020-2026
           </p>
           <div className="hero-image-frame">
             <img
@@ -508,8 +508,9 @@ function HomePage() {
             />
           </div>
           <p className="hero-note">
-            Ana Marques explores memory, place, and the tactile language of
-            everyday objects across painting, clay, and moving image.
+            Ana Marques explores the places she visits, the cultures she
+            discover and the details she collects along the way naturally find
+            their way into her creative work.
           </p>
           <AppLink
             href="/projects"
