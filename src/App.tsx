@@ -13,6 +13,7 @@ const images = {
   storiesPortrait: "/assets/2e351.png",
   storiesLamp: "/assets/d0f56.png",
   archiveVessel: "/assets/projects/photo-10.jpg",
+  blueMemoriesHero: "/assets/projects/blue-memories-hero.jpg",
   archiveFigures: "/assets/projects/photo-01.jpg",
   archiveLamp: "/assets/projects/photo-02.jpg",
   archivePortrait: "/assets/projects/photo-04.jpg",
@@ -33,6 +34,7 @@ type Project = {
   medium: string
   dimensions: string
   image: string
+  heroImage?: string
   alt: string
   detailCrops: [string, string]
   story: string
@@ -48,6 +50,7 @@ const projects: Project[] = [
     medium: "Cold Porcelain and Acrylic",
     dimensions: "26 x 15 cm",
     image: images.archiveVessel,
+    heroImage: images.blueMemoriesHero,
     alt: "Blue-and-white ceramic vessel with a pom-pom handle",
     detailCrops: ["25% 55%", "72% 45%"],
     story:
@@ -710,7 +713,7 @@ function ProjectDetailPage({ project }: { project: Project }) {
         </p>
       </section>
       <div className="detail-cover">
-        <img src={project.image} alt={project.alt} />
+        <img src={project.heroImage ?? project.image} alt={project.alt} />
       </div>
       <section className="project-story">
         <h2>About the work</h2>
