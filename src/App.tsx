@@ -12,16 +12,6 @@ const images = {
   storiesBlue: "/assets/efaea.png",
   storiesPortrait: "/assets/2e351.png",
   storiesLamp: "/assets/d0f56.png",
-  archiveVessel: "/assets/projects/photo-10.jpg",
-  archiveFigures: "/assets/projects/photo-01.jpg",
-  archiveLamp: "/assets/projects/photo-02.jpg",
-  archivePortrait: "/assets/projects/photo-04.jpg",
-  archiveRoom: "/assets/projects/photo-03.jpg",
-  archiveMexico: "/assets/projects/photo-05.jpg",
-  archiveClassicalFigures: "/assets/projects/photo-07.jpg",
-  archiveBlueVessel: "/assets/projects/photo-09.jpg",
-  archiveVidas: "/assets/projects/photo-08.jpg",
-  archiveMasks: "/assets/projects/photo-06.jpg",
 }
 
 type Project = {
@@ -32,7 +22,9 @@ type Project = {
   year: string
   medium: string
   dimensions: string
-  image: string
+  heroImage: string
+  detailImage1: string | null
+  detailImage2: string | null
   alt: string
   story: string
 }
@@ -46,7 +38,9 @@ const projects: Project[] = [
     year: "2026",
     medium: "Cold Porcelain and Acrylic",
     dimensions: "26 x 15 cm",
-    image: images.archiveVessel,
+    heroImage: "/assets/projects/blue-memories-hero.jpg",
+    detailImage1: "/assets/projects/blue-memories-detail-1.jpg",
+    detailImage2: "/assets/projects/blue-memories-detail-2.jpg",
     alt: "Blue-and-white ceramic vessel with a pom-pom handle",
     story:
       "Inspired by my trip to Greece, this ceramic piece is a personal interpretation of the colours, patterns and traditions I encountered along the way. The shades of blue and white evoke the beauty of Greek architecture and the Aegean Sea, while the geometric patterns and colourful details bring together tradition and contemporary creativity. I wanted to transform a travel memory into a unique object, where colour, texture and creativity preserve a little piece of Greece.",
@@ -59,7 +53,9 @@ const projects: Project[] = [
     year: "2026",
     medium: "Acrylic on Canvas",
     dimensions: "80 x 130 cm",
-    image: images.archiveFigures,
+    heroImage: "/assets/projects/the-shape-of-strength-hero.jpg",
+    detailImage1: "/assets/projects/the-shape-of-strength-detail-1.jpg",
+    detailImage2: "/assets/projects/the-shape-of-strength-detail-2.jpg",
     alt: "Two intertwined figures on a blue painted background",
     story:
       "In Greece, among ruins, mythology, and the traces of a civilization that continues to inspire the present, I found in ancient ceramics the depiction of athletes in motion as a form of expression. In this painting, the struggles of the Olympic Games become tension and balance — a moment suspended between strength and fragility. A travel memory transformed into painting, where history ceases to be the past and, once again, comes to life through movement.",
@@ -72,7 +68,9 @@ const projects: Project[] = [
     year: "2026",
     medium: "Cold Porcelain and Acrylic",
     dimensions: "53 x 33 cm",
-    image: images.archiveLamp,
+    heroImage: "/assets/projects/sunshine-and-stripes-hero.jpg",
+    detailImage1: "/assets/projects/sunshine-and-stripes-detail-1.jpg",
+    detailImage2: "/assets/projects/sunshine-and-stripes-detail-2.jpg",
     alt: "Table lamp with a bright yellow shade and striped ceramic base",
     story:
       "This lamp is a playful exploration of colour, shapes and contrasts, where functionality meets artistic expression. The black and white stripes of the base create a bold graphic pattern, while the bright yellow lampshade and orange details bring warmth, energy and a touch of retro charm. Through this piece, I wanted to transform an everyday object into something full of personality — a little celebration of colour, creativity and the joy of making.",
@@ -85,7 +83,9 @@ const projects: Project[] = [
     year: "2022",
     medium: "Acrylic, Gouache and Stitching on Canvas",
     dimensions: "70 x 100 cm",
-    image: images.archivePortrait,
+    heroImage: "/assets/projects/a-legacy-of-love-hero.jpg",
+    detailImage1: "/assets/projects/a-legacy-of-love-detail-1.jpg",
+    detailImage2: "/assets/projects/a-legacy-of-love-detail-2.jpg",
     alt: "Portrait of a woman wearing layered necklaces against a yellow background",
     story:
       "This painting stems from my admiration for African patterns, vibrant colours and the beauty of traditional jewellery and adornments. This passion is also connected to someone very special: my Cape Verdean aunt, with whom I shared a very strong bond from the moment I was born. A nurse by profession, she was there when I came into the world and, in many ways, brought me closer to a culture that has always fascinated me. Through this work, I wanted to honour her influence, celebrating beauty, strength and feminine identity. More than an aesthetic inspiration, this painting represents a legacy of love, admiration and memories that remain part of who I am.",
@@ -98,7 +98,9 @@ const projects: Project[] = [
     year: "2025",
     medium: "Acrylic and Gouache on Canvas",
     dimensions: "80 x 130 cm",
-    image: images.archiveRoom,
+    heroImage: "/assets/projects/20-years-hero.jpg",
+    detailImage1: "/assets/projects/20-years-detail-1.jpg",
+    detailImage2: "/assets/projects/20-years-detail-2.jpg",
     alt: "Colorful painting of a person walking through a room",
     story:
       "In 2006, during a secondary school art class, I discovered Frida Kahlo, and the Blue House (Casa Azul) became one of my greatest travel dreams. This painting captures the moment when the student Ana finally gives way to the artist who makes that dream come true. Walking towards the Casa Azul was so much more than a simple stroll: it was an encounter with an inspiration that has accompanied me since I was 17. The connection between who I was and who I am today was so powerful that I couldn't keep it locked away in my memory. I needed it to become something tangible, to take on texture and colour, and ultimately transform itself into a painting. This artwork holds everything I felt as I walked along that path — two versions of myself who, twenty years apart, finally came together.",
@@ -111,7 +113,9 @@ const projects: Project[] = [
     year: "2025",
     medium: "Acrylic and Gouache on Canvas",
     dimensions: "80 x 120 cm",
-    image: images.archiveMexico,
+    heroImage: "/assets/projects/las-dos-mexicanas-hero.jpg",
+    detailImage1: "/assets/projects/las-dos-mexicanas-detail-1.jpg",
+    detailImage2: "/assets/projects/las-dos-mexicanas-detail-2.jpg",
     alt: "Painting of two people in a Mexico-themed scene",
     story:
       "I painted this work inspired by my trip to Mexico — a dream I had held onto for twenty years, ever since I first discovered Frida Kahlo's work in a secondary school art class. One Saturday, during a visit to Chapultepec Zoo, I came across a mother and daughter wearing large bows in their hair, traditional Mexican blouses and jeans. To me, they embodied the very essence of Mexico — a fusion of colours, patterns and traditions. That image stayed with me: a simple, tender moment in which body, space and culture came together. Through this painting, I wanted to preserve that connection — the tenderness of the bond between them, the quiet strength of tradition, and the way identities intertwine and transform when they encounter new contexts and experiences. Whenever I look at this painting, I feel transported back to that Saturday. And I often find myself wondering where those two women might be now — unaware that they have become part of my memory and my art.",
@@ -124,7 +128,9 @@ const projects: Project[] = [
     year: "2026",
     medium: "Acrylic on Canvas",
     dimensions: "80 x 130 cm",
-    image: images.archiveClassicalFigures,
+    heroImage: "/assets/projects/bodies-in-motion-hero.jpg",
+    detailImage1: "/assets/projects/bodies-in-motion-detail-1.jpg",
+    detailImage2: "/assets/projects/bodies-in-motion-detail-2.jpg",
     alt: "Three classical figures depicted in brown, blue, and black",
     story:
       "Inspired by the running competitions of the ancient Olympic Games, this painting captures the beauty of movement, the pursuit of excellence and the human desire to go beyond one's limits. Through the simplicity of the figures and the rhythm of their gestures, I wanted to bring a fragment of Ancient Greece into the present — where movement becomes history, and history becomes art. A memory from my journey through Greece, transformed into painting — a tribute to the enduring spirit of the Olympic Games and the timeless connection between body, culture and movement.",
@@ -137,7 +143,9 @@ const projects: Project[] = [
     year: "2026",
     medium: "Cold Porcelain and Acrylic",
     dimensions: "25 x 15 cm",
-    image: images.archiveBlueVessel,
+    heroImage: "/assets/projects/the-sicilian-pinecone-hero.jpg",
+    detailImage1: "/assets/projects/the-sicilian-pinecone-detail-1.jpg",
+    detailImage2: "/assets/projects/the-sicilian-pinecone-detail-2.jpg",
     alt: "Tall blue ceramic vessel with a raised textured surface and striped base",
     story:
       "Inspired by the traditional Sicilian pinecones I came across during my trip to Sicily, this ceramic piece is a personal interpretation of one of the island's most iconic symbols. The pinecone-inspired texture celebrates the beauty of traditional craftsmanship, while the blue lines at the base evoke the colours of the Mediterranean and the timeless charm of Sicilian ceramics. A travel memory transformed into an object, where tradition, texture and colour come together — a small tribute to the beauty and symbolism of Sicily.",
@@ -150,7 +158,9 @@ const projects: Project[] = [
     year: "2025",
     medium: "Acrylic and Gouache on Canvas",
     dimensions: "80 x 130 cm",
-    image: images.archiveVidas,
+    heroImage: "/assets/projects/maias-hero.jpg",
+    detailImage1: "/assets/projects/maias-detail-1.jpg",
+    detailImage2: "/assets/projects/maias-detail-2.jpg",
     alt: "Vertical black artwork with colorful repeating patterns",
     story:
       "This painting was born from the trip to Mexico that I've been sharing here, especially from the inspiration I brought back from the Museum of Anthropology in Mexico City. I returned fascinated by the vibrant colors, ancestral patterns, and highly symbolic figures, transforming all of it into a composition full of energy, memory, and imagination.",
@@ -163,7 +173,9 @@ const projects: Project[] = [
     year: "2025",
     medium: "Acrylic and Gouache on Canvas",
     dimensions: "80 x 130 cm",
-    image: images.archiveMasks,
+    heroImage: "/assets/projects/mascaras-hero.jpg",
+    detailImage1: "/assets/projects/mascaras-detail-1.jpg",
+    detailImage2: "/assets/projects/mascaras-detail-2.jpg",
     alt: "Colorful collage of theatrical masks crossed by blue rays",
     story:
       "This is another painting from my trip to Mexico, another memory I am adding to this series. On the day I visited Chapultepec Castle, as I walked up the path, I came across several stalls filled with lucha libre masks. There were so many of them, lined up, colourful and expressive, that they almost seemed alive. I was fascinated by the intensity of the colours and the expressions, as if each mask carried the energy of a culture full of strength and identity. This is another memory from the streets of Mexico, now living on this canvas.",
@@ -517,7 +529,7 @@ function HomePage() {
               number={project.number}
               title={project.title}
               category={`${project.category} · ${project.year}`}
-              image={project.image}
+              image={project.heroImage}
               alt={project.alt}
               className={
                 [
@@ -661,7 +673,7 @@ function ProjectsPage() {
             number={project.number}
             title={project.title}
             category={`${project.category} · ${project.year}`}
-            image={project.image}
+            image={project.heroImage}
             alt={project.alt}
             href={`/projects/${project.slug}`}
           />
@@ -687,7 +699,7 @@ function ProjectDetailPage({ project }: { project: Project }) {
         </p>
       </section>
       <div className="detail-cover">
-        <img src={project.image} alt={project.alt} />
+        <img src={project.heroImage} alt={project.alt} />
       </div>
       <section className="project-story">
         <h2>About the work</h2>
@@ -707,10 +719,22 @@ function ProjectDetailPage({ project }: { project: Project }) {
           </div>
         </dl>
       </section>
-      <div className="detail-image-pair">
-        <img src={project.image} alt={`Close-up detail of ${project.title}`} />
-        <img src={project.image} alt={`Alternate detail of ${project.title}`} />
-      </div>
+      {(project.detailImage1 || project.detailImage2) && (
+        <div className="detail-image-pair">
+          {project.detailImage1 && (
+            <img
+              src={project.detailImage1}
+              alt={`First detail of ${project.title}`}
+            />
+          )}
+          {project.detailImage2 && (
+            <img
+              src={project.detailImage2}
+              alt={`Second detail of ${project.title}`}
+            />
+          )}
+        </div>
+      )}
       <AppLink href="/projects" className="back-link">
         View all projects <Arrow />
       </AppLink>
