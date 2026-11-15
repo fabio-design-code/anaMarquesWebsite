@@ -23,8 +23,8 @@ type Project = {
   medium: string
   dimensions: string
   heroImage: string
-  detailImage1: string | null
-  detailImage2: string | null
+  detailImage1: string
+  detailImage2: string
   alt: string
   story: string
 }
@@ -64,7 +64,7 @@ const projects: Project[] = [
     slug: "sunshine-and-stripes",
     number: "03",
     title: "Sunshine & Stripes",
-    category: "Painting",
+    category: "Ceramic",
     year: "2026",
     medium: "Cold Porcelain and Acrylic",
     dimensions: "53 x 33 cm",
@@ -188,6 +188,17 @@ const previousProjectRoutes = new Set([
   "a-room-of-echoes",
   "domestic-weather",
 ])
+
+const homepageFeaturedProjects = [
+  "blue-memories",
+  "the-shape-of-strength",
+  "a-legacy-of-love",
+  "sunshine-and-stripes",
+].map((slug) => {
+  const project = projects.find((item) => item.slug === slug)
+  if (!project) throw new Error(`Unknown featured project: ${slug}`)
+  return project
+})
 
 function Arrow({
   diagonal = false,
@@ -523,7 +534,7 @@ function HomePage() {
           </AppLink>
         </div>
         <div className="project-grid">
-          {projects.slice(0, 3).map((project, index) => (
+          {homepageFeaturedProjects.map((project, index) => (
             <ProjectCard
               key={project.slug}
               number={project.number}
@@ -535,7 +546,8 @@ function HomePage() {
                 [
                   "project-large",
                   "project-tall",
-                  "project-wide project-featured-third",
+                  "project-repeat",
+                  "project-wide",
                 ][index]
               }
               href={`/projects/${project.slug}`}
@@ -719,22 +731,20 @@ function ProjectDetailPage({ project }: { project: Project }) {
           </div>
         </dl>
       </section>
-      {(project.detailImage1 || project.detailImage2) && (
-        <div className="detail-image-pair">
-          {project.detailImage1 && (
-            <img
-              src={project.detailImage1}
-              alt={`First detail of ${project.title}`}
-            />
-          )}
-          {project.detailImage2 && (
-            <img
-              src={project.detailImage2}
-              alt={`Second detail of ${project.title}`}
-            />
-          )}
+      <div className="detail-image-pair">
+        <div className="detail-image-crop">
+          <img
+            src={project.detailImage1}
+            alt={`First detail of ${project.title}`}
+          />
         </div>
-      )}
+        <div className="detail-image-crop">
+          <img
+            src={project.detailImage2}
+            alt={`Second detail of ${project.title}`}
+          />
+        </div>
+      </div>
       <AppLink href="/projects" className="back-link">
         View all projects <Arrow />
       </AppLink>
