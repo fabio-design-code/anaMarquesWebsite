@@ -965,49 +965,65 @@ function BioPage() {
       <section className="bio-hero">
         <div>
           <SectionLabel>About Ana</SectionLabel>
-          <h1>Material remembers what language forgets.</h1>
+          <h1>I carry the world with me and turn it into colour.</h1>
         </div>
-        <img src={images.studio} alt="Ana Marques' working studio" />
+        <img
+          src="/assets/biography-ana-marques.jpg"
+          alt="Ana Marques painting a blue ceramic vessel in her studio"
+        />
       </section>
       <section className="bio-statement">
-        <SectionLabel>Artist statement</SectionLabel>
+        <SectionLabel>Biography</SectionLabel>
         <div>
-          <p className="bio-lead">
-            Ana Marques is a multidisciplinary artist working between Porto and
-            Barcelona.
+          <h2 className="bio-lead">Bagagem de Regresso</h2>
+          <p>
+            I was born in Vouzela, a small village in the heart of Portugal,
+            where my love for art began at an early age.
           </p>
           <p>
-            Her practice moves across painting, ceramics, and moving image to
-            examine how memory settles into objects and domestic spaces. Through
-            layered surfaces and intuitive gestures, she builds visual languages
-            that sit between intimacy and abstraction.
+            I still remember one quiet evening, sitting at the kitchen table,
+            drawing a small decorative object on a sheet of paper. My father, a
+            man not easily impressed, was genuinely surprised by what he saw.
+            From that moment on, I started drawing everything around me,
+            especially my grandparents, who patiently posed for me, often
+            putting their daily farm work on hold.
           </p>
           <p>
-            Ana studied Fine Art in Lisbon and has exhibited across Portugal,
-            Spain, and the United Kingdom. Her work is held in private
-            collections internationally.
+            After primary school, I decided to pursue Art. Since my hometown
+            didn&apos;t offer the course, I travelled daily to Viseu, an hour
+            each way. Those journeys taught me the value of dedication and the
+            importance of making the most of every opportunity.
           </p>
-        </div>
-      </section>
-      <section className="cv-section">
-        <div>
-          <SectionLabel>Selected exhibitions</SectionLabel>
-          <h2>CV</h2>
-        </div>
-        <div className="cv-list">
-          {[
-            ["2025", "Soft Architectures", "Galeria Norte, Porto"],
-            ["2024", "Things We Carry", "Espacio Lumen, Barcelona"],
-            ["2023", "A Room of Echoes", "The Stone Space, London"],
-            ["2022", "New Materialities", "Museu do Chiado, Lisbon"],
-            ["2021", "Tender Structures", "Casa da Cerca, Almada"],
-          ].map(([year, show, place]) => (
-            <div className="cv-row" key={show}>
-              <span>{year}</span>
-              <strong>{show}</strong>
-              <span>{place}</span>
-            </div>
-          ))}
+          <p>
+            I later graduated in Graphic Design from IPCA, in northern Portugal,
+            where I discovered illustration and realised that drawing and visual
+            expression would become part of my professional journey.
+          </p>
+          <p>
+            After working for four years at a local print studio, I moved to
+            Porto in search of new creative challenges. I began as a design
+            intern at a stationery company and later moved into the fashion
+            industry.
+          </p>
+          <p>
+            For the past eight years, I have been part of Makenotes, where I
+            grew from Graphic Designer to Head of Design.
+          </p>
+          <p>
+            Alongside my professional journey, travelling has become one of my
+            greatest sources of inspiration. The places I visit, the cultures I
+            discover and the details I collect along the way naturally find
+            their way into my creative work, both in design and, more recently,
+            in painting.
+          </p>
+          <p>
+            This is where the name Bagagem de Regresso (The Baggage I Bring
+            Back) comes from. My paintings are inspired by everything I bring
+            home from my travels: memories, colours, patterns and small details
+            that stay with me long after returning. Painting has become my
+            personal space to transform these experiences into something
+            emotional, tangible and authentic.
+          </p>
         </div>
       </section>
     </main>

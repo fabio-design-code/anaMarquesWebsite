@@ -1102,6 +1102,7 @@ img {
 .bio-hero img {
   aspect-ratio: 0.75;
   object-fit: cover;
+  object-position: 40% center;
 }
 
 .bio-statement {
