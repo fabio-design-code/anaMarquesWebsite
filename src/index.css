@@ -828,14 +828,21 @@ img {
 }
 
 .detail-cover {
-  height: clamp(460px, 68vh, 880px);
+  display: flex;
+  max-width: 1600px;
+  height: min(68vh, 760px);
+  min-height: 360px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 3.5vw;
   overflow: hidden;
 }
 
 .detail-cover img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -1688,8 +1695,9 @@ img {
   }
 
   .detail-cover {
-    min-height: 430px;
-    height: 65vh;
+    height: min(60vh, 540px);
+    min-height: 300px;
+    padding: 0 18px;
   }
 
   .project-story {
