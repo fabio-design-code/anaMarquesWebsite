@@ -897,17 +897,6 @@ img {
   padding: 30px 3.5vw 160px;
 }
 
-.detail-image-pair > img:first-child {
-  aspect-ratio: 1.2;
-  object-fit: cover;
-}
-
-.detail-image-pair > img:last-child {
-  aspect-ratio: 0.76;
-  object-fit: cover;
-  margin-top: 180px;
-}
-
 .detail-image-crop {
   overflow: hidden;
   background: var(--line);
@@ -927,14 +916,6 @@ img {
   height: 100%;
   object-fit: cover;
   transition: none;
-}
-
-.detail-image-crop:first-child img {
-  transform: scale(1.45);
-}
-
-.detail-image-crop:last-child img {
-  transform: scale(1.8);
 }
 
 .back-link {
@@ -1719,11 +1700,6 @@ img {
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 0 18px 100px;
-  }
-
-  .detail-image-pair > img:last-child {
-    width: 75%;
-    margin: 20px 0 0 auto;
   }
 
   .detail-image-crop:last-child {
