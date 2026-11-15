@@ -828,14 +828,20 @@ img {
 }
 
 .detail-cover {
-  height: clamp(460px, 68vh, 880px);
+  display: flex;
+  max-width: 1600px;
+  height: min(68vh, 760px);
+  min-height: 360px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   overflow: hidden;
 }
 
 .detail-cover img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -1460,6 +1466,15 @@ img {
     margin-left: 0;
   }
 
+  .detail-cover {
+    height: auto;
+    min-height: 0;
+  }
+
+  .detail-cover img {
+    height: auto;
+  }
+
   .project-story {
     grid-template-columns: 1fr;
     gap: 45px;
@@ -1685,11 +1700,6 @@ img {
   .detail-hero {
     min-height: 430px;
     padding: 80px 18px 55px;
-  }
-
-  .detail-cover {
-    min-height: 430px;
-    height: 65vh;
   }
 
   .project-story {
